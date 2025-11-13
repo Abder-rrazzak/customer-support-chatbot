@@ -1,0 +1,4 @@
+[console_scripts]
+chatbot-cli = src.chatbot.cli:main
+chatbot-serve = src.api.main:main
+chatbot-train = src.chatbot.train:main

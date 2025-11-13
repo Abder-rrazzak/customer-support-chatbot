@@ -1,0 +1,4 @@
+user_message,bot_response,intent
+"Hello, I need help","Hi! I'm here to help you. What can I assist you with today?",greeting
+"Where is my order?","I can help you track your order. Please provide your order number.",shipping_inquiry
+"I want to return this item","I can help you with returns. What's the reason for the return?",return_request
