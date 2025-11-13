@@ -568,7 +568,7 @@ customer-support-chatbot/
 ## 🔗 Links & Resources
 
 - **🌐 Live Demo**: [Demo Coming Soon](https://github.com/abder-rrazzak/customer-support-chatbot)
-- **📚 Documentation**: [Project Documentation](https://github.com/abder-rrazzak/customer-support-chatbot/blob/main/README.md)
+- **📚 Documentation**: [Project Documentation](https://abder-rrazzak.github.io/customer-support-chatbot/)
 - **🐛 Issues**: [GitHub Issues](https://github.com/abder-rrazzak/customer-support-chatbot/issues)
 - **💬 Discussions**: [GitHub Discussions](https://github.com/abder-rrazzak/customer-support-chatbot/discussions)
 - **📊 Monitoring**: [Grafana Dashboard](http://localhost:3000)
