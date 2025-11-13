@@ -1,0 +1,5 @@
+text_features,intent
+"check my order status please",order_status
+"need to return item",return_request
+"technical issue with app",technical_support
+"store hours information",general_inquiry

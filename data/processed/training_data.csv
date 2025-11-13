@@ -1,0 +1,8 @@
+text_features,intent
+"hello i need help with my order",order_status
+"want to return this product",return_request
+"app is not working properly",technical_support
+"what are your store hours",general_inquiry
+"forgot my password help",account_help
+"billing question about charge",billing_inquiry
+"tell me about this product",product_info
