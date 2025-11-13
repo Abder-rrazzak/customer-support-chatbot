@@ -1,8 +1,13 @@
 from fastapi import FastAPI, WebSocket, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
+from prometheus_client import generate_latest, CONTENT_TYPE_LATEST
+from starlette.responses import Response
 import uvicorn
 import os
+
+from .schemas import ChatRequest, ChatResponse, SessionCreate, SessionResponse
+from ..chatbot.engine import ChatbotEngine
+from ..analytics.metrics import MetricsCollector
 
 app = FastAPI(
     title="Customer Support Chatbot API",
@@ -18,35 +23,35 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-class ChatMessage(BaseModel):
-    message: str
-    session_id: str
-
-class ChatResponse(BaseModel):
-    message: str
-    intent: str
-    confidence: float
-    requires_human: bool = False
+# Initialize components
+chatbot = ChatbotEngine()
+metrics = MetricsCollector()
 
 @app.get("/health")
 async def health_check():
     return {"status": "healthy", "service": "chatbot-api"}
 
 @app.post("/chat", response_model=ChatResponse)
-async def chat(request: ChatMessage):
-    # Placeholder implementation
-    return ChatResponse(
-        message="Hello! How can I help you today?",
-        intent="greeting",
-        confidence=0.95
-    )
+async def chat(request: ChatRequest):
+    metrics.start_request()
+    
+    result = chatbot.process_message(request.message, request.session_id)
+    
+    metrics.end_request()
+    
+    return ChatResponse(**result)
+
+@app.get("/metrics")
+async def get_metrics():
+    return Response(generate_latest(), media_type=CONTENT_TYPE_LATEST)
 
 @app.websocket("/ws")
 async def websocket_endpoint(websocket: WebSocket):
     await websocket.accept()
     while True:
         data = await websocket.receive_text()
-        await websocket.send_text(f"Echo: {data}")
+        result = chatbot.process_message(data)
+        await websocket.send_json(result)
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)
