@@ -1,0 +1,32 @@
+stages:
+  data-validation:
+    cmd: python scripts/dataops/data_quality_checks.py
+    deps:
+      - data/raw/conversations.csv
+    outs:
+      - data/validated/
+
+  data-processing:
+    cmd: python scripts/dataops/process_data.py
+    deps:
+      - data/raw/conversations.csv
+    outs:
+      - data/processed/training_data.csv
+
+  train-intent:
+    cmd: python scripts/mlops/train_model.py
+    deps:
+      - data/processed/training_data.csv
+      - src/nlp/
+    outs:
+      - models/intent_classifier.joblib
+    metrics:
+      - metrics/intent_metrics.json
+
+  evaluate:
+    cmd: python scripts/mlops/evaluate_model.py
+    deps:
+      - models/intent_classifier.joblib
+      - data/processed/test_data.csv
+    metrics:
+      - metrics/evaluation_metrics.json

@@ -1,4 +1,6 @@
-user_message,bot_response,intent
-"Hello, I need help","Hi! I'm here to help you. What can I assist you with today?",greeting
-"Where is my order?","I can help you track your order. Please provide your order number.",shipping_inquiry
-"I want to return this item","I can help you with returns. What's the reason for the return?",return_request
+message,intent,entities
+"Hello, I need help with my order","order_status","{""order_number"": null}"
+"I want to return this product","return_request","{""product_name"": null}"
+"My app is not working","technical_support","{""issue_type"": ""app""}"
+"What are your store hours?","general_inquiry","{}"
+"I forgot my password","account_help","{""issue_type"": ""password""}"

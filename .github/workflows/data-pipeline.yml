@@ -1,0 +1,47 @@
+name: Data Pipeline
+
+on:
+  schedule:
+    - cron: '0 1 * * *'  # Daily at 1 AM
+  workflow_dispatch:
+
+jobs:
+  data-ingestion:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.9"
+    
+    - name: Install dependencies
+      run: |
+        pip install pandas sqlalchemy psycopg2-binary
+    
+    - name: Ingest conversation data
+      env:
+        DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      run: |
+        python scripts/ingest_data.py
+    
+    - name: Data quality checks
+      run: |
+        python scripts/data_quality_checks.py
+
+  data-processing:
+    needs: data-ingestion
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Process and clean data
+      run: |
+        python scripts/process_data.py
+    
+    - name: Feature engineering
+      run: |
+        python scripts/feature_engineering.py
+    
+    - name: Update data catalog
+      run: |
+        python scripts/update_catalog.py

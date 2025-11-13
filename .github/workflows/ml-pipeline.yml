@@ -1,0 +1,91 @@
+name: ML Pipeline
+
+on:
+  push:
+    paths:
+      - 'data/**'
+      - 'src/nlp/**'
+      - 'scripts/train_model.py'
+  schedule:
+    - cron: '0 2 * * 0'  # Weekly retraining
+  workflow_dispatch:
+    inputs:
+      retrain_all:
+        description: 'Retrain all models'
+        required: false
+        default: 'false'
+
+jobs:
+  data-validation:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.9"
+    
+    - name: Install dependencies
+      run: |
+        pip install great-expectations pandas dvc
+    
+    - name: Validate data quality
+      run: |
+        python scripts/validate_data.py
+    
+    - name: DVC data validation
+      run: |
+        dvc repro data-validation
+
+  model-training:
+    needs: data-validation
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.9"
+    
+    - name: Install ML dependencies
+      run: |
+        pip install -r requirements-ml.txt
+    
+    - name: Train models
+      run: |
+        python scripts/train_model.py
+        
+    - name: Model validation
+      run: |
+        python scripts/validate_model.py
+    
+    - name: Upload model artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: trained-models
+        path: models/
+
+  model-evaluation:
+    needs: model-training
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Download model artifacts
+      uses: actions/download-artifact@v3
+      with:
+        name: trained-models
+        path: models/
+    
+    - name: Evaluate models
+      run: |
+        python scripts/evaluate_model.py
+    
+    - name: Generate model report
+      run: |
+        python scripts/generate_model_report.py
+    
+    - name: Upload evaluation results
+      uses: actions/upload-artifact@v3
+      with:
+        name: evaluation-results
+        path: reports/

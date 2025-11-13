@@ -1,10 +1,14 @@
 # 🤖 Customer Support Chatbot - Production-Ready AI Assistant
 
-[![CI/CD Pipeline](https://github.com/abder-rrazzak/customer-support-chatbot/actions/workflows/ci-cd.yaml/badge.svg)](https://github.com/abder-rrazzak/customer-support-chatbot/actions/workflows/ci-cd.yaml)
-[![Documentation](https://github.com/abder-rrazzak/customer-support-chatbot/actions/workflows/static.yaml/badge.svg)](https://abder-rrazzak.github.io/customer-support-chatbot/)
+
+[![CI/CD Pipeline](https://github.com/abder-rrazzak/customer-support-chatbot/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/abder-rrazzak/customer-support-chatbot/actions/workflows/ci-cd.yml)
+[![ML Pipeline](https://github.com/abder-rrazzak/customer-support-chatbot/actions/workflows/ml-pipeline.yml/badge.svg)](https://github.com/abder-rrazzak/customer-support-chatbot/actions/workflows/ml-pipeline.yml)
+[![Data Pipeline](https://github.com/abder-rrazzak/customer-support-chatbot/actions/workflows/data-pipeline.yml/badge.svg)](https://github.com/abder-rrazzak/customer-support-chatbot/actions/workflows/data-pipeline.yml)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.100+-green.svg)](https://fastapi.tiangolo.com/)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![MLflow](https://img.shields.io/badge/MLflow-2.5+-orange.svg)](https://mlflow.org/)
+[![DVC](https://img.shields.io/badge/DVC-3.0+-blue.svg)](https://dvc.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 > **Enterprise-grade AI chatbot for customer support with advanced NLP capabilities, real-time conversation management, and comprehensive analytics.**
