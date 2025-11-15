@@ -27,6 +27,10 @@ app.add_middleware(
 chatbot = ChatbotEngine()
 metrics = MetricsCollector()
 
+@app.get("/")
+async def root():
+    return {"message": "Customer Support Chatbot API", "docs": "/docs"}
+
 @app.get("/health")
 async def health_check():
     return {"status": "healthy", "service": "chatbot-api"}

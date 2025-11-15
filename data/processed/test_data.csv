@@ -1,5 +1,87 @@
 text_features,intent
-"check my order status please",order_status
-"need to return item",return_request
-"technical issue with app",technical_support
-"store hours information",general_inquiry
+industry certifications,general_inquiry
+package marked as delivered but not received,order_status
+return gift card refund,return_request
+enable account notifications,account_help
+product disposal guide,product_info
+affiliate program,general_inquiry
+worker thread crashed,technical_support
+exchange for different model,return_request
+exchange size chart,return_request
+sustainability initiatives,general_inquiry
+return pickup schedule,return_request
+delivery date estimation,order_status
+checkout process freezing,technical_support
+product reviews,product_info
+social media integration,account_help
+privacy policy,general_inquiry
+charge on my credit card,billing_inquiry
+package stuck in transit,order_status
+update phone number on account,account_help
+subscription billing cycle,billing_inquiry
+billing statement download,billing_inquiry
+product sustainability,product_info
+product features list,product_info
+account integration settings,account_help
+credit card expiration update,billing_inquiry
+login button not responding,technical_support
+gift return without receipt,return_request
+live chat availability,general_inquiry
+compatibility check,product_info
+secret rotation required,technical_support
+package delivery proof,order_status
+gift card information,general_inquiry
+billing threshold alert,billing_inquiry
+estimated delivery time,order_status
+regulatory approvals,general_inquiry
+shipping carrier information,order_status
+billing cycle change,billing_inquiry
+color exchange needed,return_request
+tell me about this product,product_info
+safety protocols,general_inquiry
+performance very slow,technical_support
+return status check,return_request
+package location update,order_status
+order confirmation missing,order_status
+recovery email setup,account_help
+package delivery route,order_status
+customer ratings,product_info
+order delay notification,order_status
+real-time sync broken,technical_support
+integration possibilities,product_info
+change password requirements,account_help
+load balancer error,technical_support
+system requirements,product_info
+i forgot my password,account_help
+multiple account merge request,account_help
+wrong amount charged,billing_inquiry
+auto-renewal cancellation,billing_inquiry
+account audit log,account_help
+return item condition,return_request
+order preparation time,order_status
+energy efficiency rating,product_info
+payment plan options,billing_inquiry
+order fulfillment status,order_status
+order modification after placement,order_status
+error code meanings,product_info
+help with my account,account_help
+exchange international order,return_request
+background service stopped,technical_support
+refund to different payment method,return_request
+account compliance,account_help
+error message on checkout,technical_support
+workplace culture,general_inquiry
+package weight and dimensions,order_status
+corporate responsibility,general_inquiry
+technology partnerships,general_inquiry
+payment declined reason,billing_inquiry
+account data download,account_help
+business account upgrade,account_help
+return shipping insurance,return_request
+order inventory allocation,order_status
+package lost in mail,order_status
+api documentation,product_info
+account security report,account_help
+package delivery receipt,order_status
+account deactivation,account_help
+profile picture upload issue,account_help

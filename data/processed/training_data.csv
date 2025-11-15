@@ -1,8 +1,434 @@
 text_features,intent
-"hello i need help with my order",order_status
-"want to return this product",return_request
-"app is not working properly",technical_support
-"what are your store hours",general_inquiry
-"forgot my password help",account_help
-"billing question about charge",billing_inquiry
-"tell me about this product",product_info
+i forgot my password,account_help
+how do i reset my password,account_help
+can't login to my account,account_help
+update my profile information,account_help
+change my email address,account_help
+delete my account permanently,account_help
+two factor authentication setup,account_help
+account locked out help,account_help
+change my username,account_help
+update phone number on account,account_help
+security settings modification,account_help
+privacy settings help,account_help
+account verification issues,account_help
+login credentials not working,account_help
+account recovery assistance,account_help
+change password requirements,account_help
+account suspension appeal,account_help
+profile picture upload issue,account_help
+account settings not saving,account_help
+multiple account merge request,account_help
+account activity review,account_help
+login history check,account_help
+account data download,account_help
+notification preferences,account_help
+account deactivation,account_help
+help with my account,account_help
+locked out of account,account_help
+forgot username,account_help
+account hacked,account_help
+suspicious account activity,account_help
+enable account notifications,account_help
+disable email alerts,account_help
+account backup codes,account_help
+recovery email setup,account_help
+account timezone change,account_help
+language preferences,account_help
+account theme settings,account_help
+profile visibility settings,account_help
+account linking issues,account_help
+social media integration,account_help
+account export data,account_help
+gdpr data request,account_help
+account compliance,account_help
+parental controls setup,account_help
+child account management,account_help
+family account sharing,account_help
+business account upgrade,account_help
+premium account features,account_help
+account downgrade,account_help
+trial account extension,account_help
+account migration,account_help
+legacy account update,account_help
+account api access,account_help
+developer account setup,account_help
+account webhook configuration,account_help
+account integration settings,account_help
+account audit log,account_help
+account security report,account_help
+account breach notification,account_help
+account recovery phone,account_help
+account backup verification,account_help
+where is my order,order_status
+track my package,order_status
+order status check,order_status
+when will my order arrive,order_status
+my order hasn't arrived yet,order_status
+order number ord123456 status,order_status
+tracking number not working,order_status
+package delivery update,order_status
+order shipped notification,order_status
+delivery date estimation,order_status
+order processing time,order_status
+package stuck in transit,order_status
+order confirmation missing,order_status
+delivery attempt failed,order_status
+package marked as delivered but not received,order_status
+order delay notification,order_status
+shipping carrier information,order_status
+package location update,order_status
+order fulfillment status,order_status
+delivery signature required,order_status
+package rerouted notification,order_status
+order preparation time,order_status
+shipping label created,order_status
+package out for delivery,order_status
+order backordered status,order_status
+partial shipment tracking,order_status
+express delivery status,order_status
+international shipping update,order_status
+package customs clearance,order_status
+order modification after placement,order_status
+check order number 12345,order_status
+order still processing,order_status
+estimated delivery time,order_status
+package lost in mail,order_status
+delivery address change,order_status
+package delivery instructions,order_status
+order shipped to wrong address,order_status
+package delivery schedule,order_status
+order tracking history,order_status
+package delivery confirmation,order_status
+order status email update,order_status
+package delivery photo,order_status
+order fulfillment center,order_status
+package weight and dimensions,order_status
+order shipping method,order_status
+package insurance claim,order_status
+order delivery window,order_status
+package delivery exception,order_status
+order priority upgrade,order_status
+package delivery hold,order_status
+order batch processing,order_status
+package delivery notification,order_status
+order inventory allocation,order_status
+package delivery attempt,order_status
+order quality check,order_status
+package delivery route,order_status
+order warehouse location,order_status
+package delivery driver,order_status
+order picking status,order_status
+package delivery truck,order_status
+order packing status,order_status
+package delivery scan,order_status
+order shipping label,order_status
+package delivery receipt,order_status
+order dispatch time,order_status
+package delivery proof,order_status
+order transit time,order_status
+package delivery status,order_status
+order arrival notification,order_status
+package delivery tracking,order_status
+order completion status,order_status
+i want to return this item,return_request
+how do i get a refund,return_request
+return policy information,return_request
+cancel my order,return_request
+exchange this product,return_request
+defective item return,return_request
+wrong item received,return_request
+size exchange request,return_request
+color exchange needed,return_request
+damaged package return,return_request
+return shipping label,return_request
+refund processing time,return_request
+return authorization number,return_request
+partial refund request,return_request
+store credit instead of refund,return_request
+return window expired,return_request
+gift return without receipt,return_request
+digital product refund,return_request
+subscription cancellation,return_request
+warranty claim return,return_request
+return pickup schedule,return_request
+refund to different payment method,return_request
+return status check,return_request
+exchange for different model,return_request
+bulk order return,return_request
+return packaging requirements,return_request
+restocking fee inquiry,return_request
+need to return defective item,return_request
+product not as described,return_request
+return merchandise authorization,return_request
+refund request form,return_request
+return shipping cost,return_request
+exchange policy details,return_request
+return deadline extension,return_request
+refund payment method,return_request
+return condition requirements,return_request
+exchange size chart,return_request
+return original packaging,return_request
+refund processing delay,return_request
+return quality inspection,return_request
+exchange availability check,return_request
+return shipping insurance,return_request
+refund tax adjustment,return_request
+return item condition,return_request
+exchange price difference,return_request
+return receipt requirement,return_request
+refund bank processing,return_request
+return multiple items,return_request
+exchange international order,return_request
+return gift card refund,return_request
+exchange warranty transfer,return_request
+return custom order,return_request
+refund promotional discount,return_request
+return final sale item,return_request
+exchange limited edition,return_request
+return bundle package,return_request
+refund subscription fee,return_request
+return opened software,return_request
+exchange personalized item,return_request
+return clearance item,return_request
+the app is not working,technical_support
+website loading issues,technical_support
+payment not processing,technical_support
+error message on checkout,technical_support
+can't complete my purchase,technical_support
+app keeps crashing,technical_support
+login button not responding,technical_support
+page not loading properly,technical_support
+search function broken,technical_support
+images not displaying,technical_support
+cart items disappearing,technical_support
+checkout process freezing,technical_support
+password reset email not received,technical_support
+mobile app won't open,technical_support
+browser compatibility issues,technical_support
+ssl certificate error,technical_support
+404 page not found error,technical_support
+server timeout error,technical_support
+database connection failed,technical_support
+api integration problem,technical_support
+file upload not working,technical_support
+video streaming issues,technical_support
+audio playback problems,technical_support
+download link broken,technical_support
+email notifications not working,technical_support
+two-factor authentication failing,technical_support
+captcha not loading,technical_support
+form submission error,technical_support
+session expired repeatedly,technical_support
+cookies not being saved,technical_support
+javascript errors on page,technical_support
+css styling broken,technical_support
+responsive design issues,technical_support
+performance very slow,technical_support
+memory usage too high,technical_support
+network connection error,technical_support
+sync not working,technical_support
+backup failed,technical_support
+update installation error,technical_support
+plugin compatibility issue,technical_support
+cache clearing needed,technical_support
+firewall blocking access,technical_support
+vpn connection problem,technical_support
+dns resolution error,technical_support
+proxy server issue,technical_support
+bandwidth limitation,technical_support
+server maintenance window,technical_support
+load balancer error,technical_support
+cdn delivery problem,technical_support
+api rate limit exceeded,technical_support
+webhook delivery failed,technical_support
+oauth authentication error,technical_support
+token expiration issue,technical_support
+cors policy blocking,technical_support
+websocket connection lost,technical_support
+real-time sync broken,technical_support
+push notification failed,technical_support
+background service stopped,technical_support
+scheduled task not running,technical_support
+batch processing error,technical_support
+queue processing stuck,technical_support
+worker thread crashed,technical_support
+memory leak detected,technical_support
+cpu usage spike,technical_support
+disk space full,technical_support
+log file rotation,technical_support
+monitoring alert triggered,technical_support
+health check failing,technical_support
+service discovery issue,technical_support
+container restart loop,technical_support
+kubernetes pod error,technical_support
+docker build failed,technical_support
+deployment pipeline broken,technical_support
+rollback procedure needed,technical_support
+configuration drift detected,technical_support
+environment variable missing,technical_support
+secret rotation required,technical_support
+certificate renewal needed,technical_support
+security scan failed,technical_support
+vulnerability detected,technical_support
+compliance check error,technical_support
+question about my bill,billing_inquiry
+charge on my credit card,billing_inquiry
+invoice not received,billing_inquiry
+payment method update,billing_inquiry
+billing address change,billing_inquiry
+wrong amount charged,billing_inquiry
+duplicate charge on card,billing_inquiry
+payment declined reason,billing_inquiry
+subscription billing cycle,billing_inquiry
+tax calculation error,billing_inquiry
+discount code not applied,billing_inquiry
+promo code invalid,billing_inquiry
+payment plan options,billing_inquiry
+auto-renewal cancellation,billing_inquiry
+billing statement download,billing_inquiry
+payment history review,billing_inquiry
+credit card expiration update,billing_inquiry
+paypal payment issues,billing_inquiry
+bank transfer setup,billing_inquiry
+currency conversion charges,billing_inquiry
+late payment fees,billing_inquiry
+payment reminder settings,billing_inquiry
+billing dispute resolution,billing_inquiry
+chargeback inquiry,billing_inquiry
+refund processing delay,billing_inquiry
+billing cycle change,billing_inquiry
+payment failure notification,billing_inquiry
+invoice payment terms,billing_inquiry
+billing contact update,billing_inquiry
+payment receipt request,billing_inquiry
+billing frequency change,billing_inquiry
+payment authorization hold,billing_inquiry
+billing threshold alert,billing_inquiry
+payment method verification,billing_inquiry
+billing account merge,billing_inquiry
+payment processing fee,billing_inquiry
+billing statement period,billing_inquiry
+payment gateway error,billing_inquiry
+billing tax exemption,billing_inquiry
+payment installment plan,billing_inquiry
+billing currency change,billing_inquiry
+payment retry schedule,billing_inquiry
+billing notification preferences,billing_inquiry
+payment security verification,billing_inquiry
+billing account closure,billing_inquiry
+payment method priority,billing_inquiry
+billing reconciliation,billing_inquiry
+payment audit trail,billing_inquiry
+billing compliance report,billing_inquiry
+payment fraud alert,billing_inquiry
+tell me about this product,product_info
+product specifications,product_info
+is this item in stock,product_info
+product comparison,product_info
+size guide information,product_info
+product availability,product_info
+color options available,product_info
+product dimensions,product_info
+weight specifications,product_info
+material composition,product_info
+care instructions,product_info
+warranty information,product_info
+product reviews,product_info
+customer ratings,product_info
+product images,product_info
+video demonstration,product_info
+installation guide,product_info
+user manual download,product_info
+compatibility check,product_info
+system requirements,product_info
+product bundle options,product_info
+bulk pricing,product_info
+wholesale availability,product_info
+product lifecycle,product_info
+replacement parts,product_info
+accessories available,product_info
+product certifications,product_info
+safety information,product_info
+age recommendations,product_info
+environmental impact,product_info
+product features list,product_info
+technical specifications,product_info
+product model number,product_info
+manufacturing date,product_info
+product origin country,product_info
+quality standards,product_info
+product testing results,product_info
+performance benchmarks,product_info
+energy efficiency rating,product_info
+product sustainability,product_info
+recycling information,product_info
+product disposal guide,product_info
+maintenance schedule,product_info
+service intervals,product_info
+troubleshooting guide,product_info
+error code meanings,product_info
+diagnostic procedures,product_info
+calibration instructions,product_info
+upgrade options,product_info
+customization possibilities,product_info
+personalization features,product_info
+configuration settings,product_info
+default parameters,product_info
+optimization tips,product_info
+best practices usage,product_info
+common applications,product_info
+use case scenarios,product_info
+integration possibilities,product_info
+third party compatibility,product_info
+api documentation,product_info
+what are your store hours,general_inquiry
+contact customer service,general_inquiry
+store location information,general_inquiry
+shipping information,general_inquiry
+company information,general_inquiry
+business hours,general_inquiry
+holiday schedule,general_inquiry
+phone number for support,general_inquiry
+email contact address,general_inquiry
+live chat availability,general_inquiry
+social media accounts,general_inquiry
+newsletter subscription,general_inquiry
+privacy policy,general_inquiry
+terms of service,general_inquiry
+shipping policies,general_inquiry
+international shipping,general_inquiry
+delivery options,general_inquiry
+gift card information,general_inquiry
+loyalty program details,general_inquiry
+rewards program,general_inquiry
+student discounts,general_inquiry
+military discounts,general_inquiry
+senior citizen offers,general_inquiry
+bulk order discounts,general_inquiry
+partnership opportunities,general_inquiry
+affiliate program,general_inquiry
+career opportunities,general_inquiry
+press inquiries,general_inquiry
+investor relations,general_inquiry
+corporate responsibility,general_inquiry
+company mission statement,general_inquiry
+corporate values,general_inquiry
+sustainability initiatives,general_inquiry
+community involvement,general_inquiry
+charitable programs,general_inquiry
+environmental policies,general_inquiry
+diversity inclusion,general_inquiry
+employee benefits,general_inquiry
+workplace culture,general_inquiry
+innovation programs,general_inquiry
+research development,general_inquiry
+technology partnerships,general_inquiry
+industry certifications,general_inquiry
+quality assurance,general_inquiry
+compliance standards,general_inquiry
+regulatory approvals,general_inquiry
+safety protocols,general_inquiry
+security measures,general_inquiry
+data protection,general_inquiry
+accessibility features,general_inquiry

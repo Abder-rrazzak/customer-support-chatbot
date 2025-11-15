@@ -1,0 +1,9 @@
+{
+  "account_help": 0,
+  "order_status": 1,
+  "return_request": 2,
+  "technical_support": 3,
+  "billing_inquiry": 4,
+  "product_info": 5,
+  "general_inquiry": 6
+}

@@ -27,6 +27,7 @@ dev-install:
 	pip install -e .
 
 download-models:
+	pip install spacy
 	python -m spacy download en_core_web_sm
 	python -m spacy download fr_core_news_sm
 
@@ -39,20 +40,36 @@ db-migrate:
 db-seed:
 	python scripts/seed_db.py
 
+download-dataset:
+	python scripts/create_sample_dataset.py
+
 train-intent:
 	python scripts/mlops/train_model.py
+
+fine-tune:
+	python scripts/mlops/fine_tune_model.py
 
 evaluate-model:
 	python scripts/mlops/evaluate_model.py
 
 api:
+	@echo "Starting API server..."
 	uvicorn src.api.main:app --reload --host 0.0.0.0 --port 8000
+
+api-dev:
+	@echo "Starting API in development mode (no Docker required)..."
+	python -m uvicorn src.api.main:app --reload --host 127.0.0.1 --port 8000
 
 docker-build:
 	docker build -t customer-support-chatbot .
 
 docker-compose-up:
-	docker-compose up -d
+	@if ! command -v docker >/dev/null 2>&1; then \
+		echo "❌ Docker not found. Please install Docker Desktop and enable WSL2 integration."; \
+		echo "Visit: https://docs.docker.com/go/wsl2/"; \
+		exit 1; \
+	fi
+	@command -v "docker-compose" >/dev/null 2>&1 && docker-compose up -d || docker compose up -d
 
 format:
 	black src tests

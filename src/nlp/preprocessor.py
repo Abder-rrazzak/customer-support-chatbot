@@ -1,5 +1,4 @@
 import re
-from typing import str
 
 class TextPreprocessor:
     def __init__(self):
