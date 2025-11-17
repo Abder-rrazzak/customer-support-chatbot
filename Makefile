@@ -63,6 +63,16 @@ api-dev:
 docker-build:
 	docker build -t customer-support-chatbot .
 
+docker-build-optimized:
+	docker build -f Dockerfile.prebuild -t customer-support-chatbot:optimized .
+
+prebuild:
+	@echo "Building optimized pre-build images..."
+	docker build -f Dockerfile.prebuild --target base -t customer-support-chatbot:base .
+	docker build -f Dockerfile.prebuild --target dependencies -t customer-support-chatbot:deps .
+	docker build -f Dockerfile.prebuild --target ml-models -t customer-support-chatbot:ml .
+	@echo "Pre-build completed successfully!"
+
 docker-compose-up:
 	@if ! command -v docker >/dev/null 2>&1; then \
 		echo "❌ Docker not found. Please install Docker Desktop and enable WSL2 integration."; \
