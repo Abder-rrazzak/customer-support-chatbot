@@ -1,5 +1,5 @@
 # Multi-stage Dockerfile optimisé pour pre-build
-FROM python:3.12-slim as base
+FROM python:3.12-slim AS base
 
 # Variables d'environnement pour optimisation
 ENV PYTHONUNBUFFERED=1 \
@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /app
 
 # Stage pour les dépendances Python
-FROM base as dependencies
+FROM base AS dependencies
 
 # Copie des fichiers de requirements
 COPY requirements*.txt ./
@@ -29,27 +29,16 @@ RUN pip install --upgrade pip && \
     pip install -r requirements-dev.txt
 
 # Stage pour les modèles ML
-FROM dependencies as ml-models
+FROM dependencies AS ml-models
 
 # Installation des dépendances ML
 RUN pip install -r requirements-ml.txt
 
 # Pré-téléchargement des modèles
-RUN python -c "
-from transformers import AutoTokenizer, AutoModel
-import subprocess
-
-# Modèles Transformers
-AutoTokenizer.from_pretrained('distilbert-base-uncased')
-AutoModel.from_pretrained('distilbert-base-uncased')
-
-# Modèles spaCy
-subprocess.run(['python', '-m', 'spacy', 'download', 'en_core_web_sm'])
-subprocess.run(['python', '-m', 'spacy', 'download', 'fr_core_news_sm'])
-"
+RUN python -c "from transformers import AutoTokenizer, AutoModel; import subprocess; AutoTokenizer.from_pretrained('distilbert-base-uncased'); AutoModel.from_pretrained('distilbert-base-uncased'); subprocess.run(['python', '-m', 'spacy', 'download', 'en_core_web_sm']); subprocess.run(['python', '-m', 'spacy', 'download', 'fr_core_news_sm'])"
 
 # Stage final de production
-FROM ml-models as production
+FROM ml-models AS production
 
 # Copie du code source
 COPY . .
