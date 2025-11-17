@@ -38,22 +38,13 @@ jobs:
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
 
-    - name: Log in to Container Registry
-      uses: docker/login-action@v3
-      with:
-        registry: ghcr.io
-        username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_TOKEN }}
-
-
-
     - name: Build optimized image
       uses: docker/build-push-action@v5
       with:
         context: .
         file: Dockerfile.prebuild
         target: production
-        push: true
-        tags: ghcr.io/abder-rrazzak/customer-support-chatbot:${{ github.sha }}
+        push: false
+        tags: customer-support-chatbot:${{ github.sha }}
         cache-from: type=gha
         cache-to: type=gha,mode=max
