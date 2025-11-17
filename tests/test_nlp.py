@@ -1,6 +1,8 @@
 import pytest
+
 from src.chatbot.intent_classifier import IntentClassifier
 from src.nlp.preprocessor import TextPreprocessor
+
 
 def test_intent_classifier():
     classifier = IntentClassifier()
@@ -8,6 +10,7 @@ def test_intent_classifier():
     assert "intent" in result
     assert "confidence" in result
     assert isinstance(result["confidence"], float)
+
 
 def test_text_preprocessor():
     preprocessor = TextPreprocessor()
