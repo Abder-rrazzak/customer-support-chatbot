@@ -23,24 +23,16 @@ jobs:
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
 
-    - name: Log in to Container Registry
-      uses: docker/login-action@v3
-      with:
-        registry: ${{ env.REGISTRY }}
-        username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_TOKEN }}
-
     - name: Build and cache base image
       id: build
       uses: docker/build-push-action@v5
       with:
         context: .
         target: base
-        push: true
-        tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:base-cache
+        push: false
+        tags: base-cache:latest
         cache-from: type=gha
         cache-to: type=gha,mode=max
-        platforms: linux/amd64,linux/arm64
 
   prebuild-dependencies:
     runs-on: ubuntu-latest
@@ -51,25 +43,15 @@ jobs:
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
 
-    - name: Log in to Container Registry
-      uses: docker/login-action@v3
-      with:
-        registry: ${{ env.REGISTRY }}
-        username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_TOKEN }}
-
     - name: Build dependencies layer
       uses: docker/build-push-action@v5
       with:
         context: .
         target: dependencies
-        push: true
-        tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:deps-cache
-        cache-from: |
-          type=gha
-          type=registry,ref=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:base-cache
+        push: false
+        tags: deps-cache:latest
+        cache-from: type=gha
         cache-to: type=gha,mode=max
-        platforms: linux/amd64,linux/arm64
 
   prebuild-ml-models:
     runs-on: ubuntu-latest
@@ -103,15 +85,10 @@ jobs:
       run: |
         python -c "
         from transformers import AutoTokenizer, AutoModel
-        import spacy
 
         # Pre-download transformers models
         AutoTokenizer.from_pretrained('distilbert-base-uncased')
         AutoModel.from_pretrained('distilbert-base-uncased')
-
-        # Download spacy models
-        import subprocess
-        subprocess.run(['python', '-m', 'spacy', 'download', 'en_core_web_sm'])
         "
 
     - name: Train baseline model

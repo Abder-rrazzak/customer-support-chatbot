@@ -34,8 +34,8 @@ FROM dependencies AS ml-models
 # Installation des dépendances ML
 RUN pip install -r requirements-ml.txt
 
-# Pré-téléchargement des modèles
-RUN python -c "from transformers import AutoTokenizer, AutoModel; import subprocess; AutoTokenizer.from_pretrained('distilbert-base-uncased'); AutoModel.from_pretrained('distilbert-base-uncased'); subprocess.run(['python', '-m', 'spacy', 'download', 'en_core_web_sm']); subprocess.run(['python', '-m', 'spacy', 'download', 'fr_core_news_sm'])"
+# Pré-téléchargement des modèles Transformers uniquement
+RUN python -c "from transformers import AutoTokenizer, AutoModel; AutoTokenizer.from_pretrained('distilbert-base-uncased'); AutoModel.from_pretrained('distilbert-base-uncased')"
 
 # Stage final de production
 FROM ml-models AS production
