@@ -28,6 +28,7 @@ jobs:
       uses: docker/build-push-action@v5
       with:
         context: .
+        file: ./Dockerfile.prebuild
         target: base
         push: false
         tags: base-cache:latest
@@ -47,6 +48,7 @@ jobs:
       uses: docker/build-push-action@v5
       with:
         context: .
+        file: ./Dockerfile.prebuild
         target: dependencies
         push: false
         tags: deps-cache:latest
