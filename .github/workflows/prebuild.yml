@@ -10,7 +10,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository_owner }}/customer-support-chatbot
+  IMAGE_NAME: abder-rrazzak/customer-support-chatbot
 
 jobs:
   prebuild-base:
@@ -19,17 +19,17 @@ jobs:
       image-digest: ${{ steps.build.outputs.digest }}
     steps:
     - uses: actions/checkout@v4
-    
+
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
-    
+
     - name: Log in to Container Registry
       uses: docker/login-action@v3
       with:
         registry: ${{ env.REGISTRY }}
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
-    
+
     - name: Build and cache base image
       id: build
       uses: docker/build-push-action@v5
@@ -47,17 +47,17 @@ jobs:
     needs: prebuild-base
     steps:
     - uses: actions/checkout@v4
-    
+
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
-    
+
     - name: Log in to Container Registry
       uses: docker/login-action@v3
       with:
         registry: ${{ env.REGISTRY }}
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
-    
+
     - name: Build dependencies layer
       uses: docker/build-push-action@v5
       with:
@@ -76,13 +76,13 @@ jobs:
     needs: prebuild-dependencies
     steps:
     - uses: actions/checkout@v4
-    
+
     - name: Set up Python
       uses: actions/setup-python@v5
       with:
         python-version: "3.12"
         cache: 'pip'
-    
+
     - name: Cache ML models
       uses: actions/cache@v4
       with:
@@ -93,32 +93,32 @@ jobs:
         restore-keys: |
           ml-models-${{ hashFiles('requirements-ml.txt') }}-
           ml-models-
-    
+
     - name: Install ML dependencies
       run: |
         pip install -r requirements.txt
         pip install -r requirements-ml.txt
-    
+
     - name: Pre-download models
       run: |
         python -c "
         from transformers import AutoTokenizer, AutoModel
         import spacy
-        
+
         # Pre-download transformers models
         AutoTokenizer.from_pretrained('distilbert-base-uncased')
         AutoModel.from_pretrained('distilbert-base-uncased')
-        
+
         # Download spacy models
         import subprocess
         subprocess.run(['python', '-m', 'spacy', 'download', 'en_core_web_sm'])
         "
-    
+
     - name: Train baseline model
       run: |
         make download-dataset
         make train-intent
-    
+
     - name: Upload model artifacts
       uses: actions/upload-artifact@v4
       with:

@@ -15,16 +15,16 @@ jobs:
       uses: actions/setup-python@v5
       with:
         python-version: "3.9"
-    
+
     - name: Install dependencies
       run: |
         pip install -r requirements.txt
         pip install pytest
-    
+
     - name: Run tests
       run: |
         python -m pytest tests/ -v || echo "Tests completed"
-    
+
     - name: Validate data
       run: |
         python scripts/validate_data.py || echo "Data validation completed"
@@ -34,24 +34,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    
+
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
-    
+
     - name: Log in to Container Registry
       uses: docker/login-action@v3
       with:
         registry: ghcr.io
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
-    
-    - name: Download pre-built models
-      uses: actions/download-artifact@v4
-      with:
-        name: pretrained-models
-        path: models/
-      continue-on-error: true
-    
+
+
+
     - name: Build optimized image
       uses: docker/build-push-action@v5
       with:
@@ -59,6 +54,6 @@ jobs:
         file: Dockerfile.prebuild
         target: production
         push: true
-        tags: ghcr.io/${{ github.repository_owner }}/customer-support-chatbot:${{ github.sha }}
+        tags: ghcr.io/abder-rrazzak/customer-support-chatbot:${{ github.sha }}
         cache-from: type=gha
         cache-to: type=gha,mode=max
